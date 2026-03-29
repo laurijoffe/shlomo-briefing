@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shlomo · Morning Intelligence · March 28, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0d0d0d;
+    --surface:   #141414;
+    --border:    #252525;
+    --gold:      #c9a84c;
+    --gold-dim:  #8a6f2e;
+    --text:      #e8e0d0;
+    --muted:     #6b6359;
+    --accent:    #3a6351;
+    --accent-hi: #5a9b7a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  /* ── Header ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 48px 60px 36px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .logo-name {
+    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .logo-title {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .logo-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .header-right {
+    text-align: right;
+  }
+
+  .date-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .date-value {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── Theme bar ── */
+  .theme-bar {
+    margin: 0 60px;
+    padding: 28px 36px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    margin-top: 40px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 60%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .theme-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+  }
+
+  .theme-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .theme-text {
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  /* ── Grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1px;
+    margin: 48px 60px 0;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--surface);
+    padding: 32px 28px;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.5s ease forwards;
+    transition: background 0.2s;
+  }
+
+  .card:hover {
+    background: #181818;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .card-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .card-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-dim);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .card-source:hover { color: var(--gold); }
+
+  .card-headline {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .card-summary {
+    font-size: 16px;
+    font-weight: 300;
+    color: #a09880;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .builders-note {
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  .note-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--accent-hi);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .builders-note p {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    color: #b8c4bc;
+    line-height: 1.55;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin: 60px 60px 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-mark {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── Empty state ── */
+  .empty {
+    grid-column: 1 / -1;
+    padding: 60px;
+    text-align: center;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 700px) {
+    header, .theme-bar, .grid, footer { margin-left: 20px; margin-right: 20px; }
+    header { padding: 32px 20px 24px; }
+    .logo-title { font-size: 32px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-name">FAM · Fulton Asset Management</span>
+    <h1 class="logo-title"><em>Shlomo</em> Intelligence</h1>
+  </div>
+  <div class="header-right">
+    <div class="date-label">Morning Briefing</div>
+    <div class="date-value">March 28, 2026</div>
+  </div>
+</header>
+
+<div class="theme-bar">
+  <div class="theme-label">Today's Signal</div>
+  <p class="theme-text">Enterprise orchestration has become the battleground for AI advantage, with organizations racing to transform from isolated AI tools to coordinated multi-agent operating systems that blur the line between human and machine workflow.</p>
+</div>
+
+<div class="grid">
+  
+        <article class="card" style="animation-delay: 0.1s">
+            <div class="card-meta">
+                <span class="card-num">01</span>
+                <a class="card-source" href="https://www.stocktitan.net/news/SHPH/retransmission-shuttle-pharmaceuticals-launches-autonomous-self-u8z54rxdxbil.html" target="_blank" rel="noopener">StockTitan ↗</a>
+            </div>
+            <h2 class="card-headline">Shuttle Pharmaceuticals Previews Autonomous Multi-Agent AI System for Scientific Workflows</h2>
+            <p class="card-summary">Shuttle Pharmaceuticals unveiled a preview of its next-generation autonomous AI agent system on March 27, 2026, featuring multi-agent orchestration and frontier model integration. The system moves beyond single-step predictions to enable multi-step reasoning and coordination across complex scientific workflows, handling multimodal data and executing discrete research tasks to accelerate therapeutic discovery.</p>
+            <div class="builders-note">
+                <span class="note-label">Builder's Note</span>
+                <p>This shows Shlomo exactly what's possible with domain-specific multi-agent orchestration: autonomous systems that combine reasoning, coordination, and tool execution within specialized workflows. The 'preview' approach lets them iterate safely while building confidence—a smart path for FAM's own agent rollout.</p>
+            </div>
+        </article>
+        <article class="card" style="animation-delay: 0.18s">
+            <div class="card-meta">
+                <span class="card-num">02</span>
+                <a class="card-source" href="https://byteiota.com/agent-orchestration-frameworks-2026-openai-ruflo-swarms/" target="_blank" rel="noopener">Byteiota ↗</a>
+            </div>
+            <h2 class="card-headline">OpenAI Ships Production-Ready Agents SDK, Replacing Experimental Swarm Framework</h2>
+            <p class="card-summary">OpenAI launched its production-grade Agents SDK in March 2026, moving beyond experimental tools to enterprise-ready handoff architecture. The framework features built-in guardrails, tracing dashboards, and persistent memory support, though it comes with vendor lock-in as the trade-off for tight integration with OpenAI's ecosystem.</p>
+            <div class="builders-note">
+                <span class="note-label">Builder's Note</span>
+                <p>This is massive for Shlomo's architecture decision: OpenAI just validated handoff-based orchestration as production-ready versus swarm coordination. Their focus on guardrails and tracing mirrors exactly what a family office needs—but the vendor lock-in warning confirms your on-prem approach is strategically sound.</p>
+            </div>
+        </article>
+        <article class="card" style="animation-delay: 0.26s">
+            <div class="card-meta">
+                <span class="card-num">03</span>
+                <a class="card-source" href="https://news.lenovo.com/pressroom/press-releases/lenovo-and-nvidia-fast-track-hybrid-ai-value-inferencing-ai-solutions/" target="_blank" rel="noopener">Lenovo StoryHub ↗</a>
+            </div>
+            <h2 class="card-headline">Lenovo Unveils AI Developer Device Supporting 200B Parameter Models for Private AI</h2>
+            <p class="card-summary">Lenovo announced the ThinkStation PGX AI Developer Device capable of running 200B parameter models with 1 Petaflop of AI compute power for secure on-premise AI development. The solution addresses the 84% of organizations expecting to run AI across on-premises environments, delivering up to 8× lower cost per token compared to cloud alternatives.</p>
+            <div class="builders-note">
+                <span class="note-label">Builder's Note</span>
+                <p>This hardware breakthrough makes Shlomo's vision of sophisticated on-prem AI economically viable. 200B parameter capability locally means you can run frontier-class models without cloud dependencies—perfect for FAM's data sovereignty requirements while maintaining the intelligence level needed for complex family office workflows.</p>
+            </div>
+        </article>
+        <article class="card" style="animation-delay: 0.33999999999999997s">
+            <div class="card-meta">
+                <span class="card-num">04</span>
+                <a class="card-source" href="https://www.shakudo.io/blog/top-9-ai-agent-frameworks" target="_blank" rel="noopener">Shakudo ↗</a>
+            </div>
+            <h2 class="card-headline">Kaji Platform Emerges as Autonomous Enterprise AI Agent with Full Computing Environment</h2>
+            <p class="card-summary">Shakudo's Kaji platform runs as a complete computing environment with its own file system, CPU, and memory inside private cloud infrastructure, connecting to 200+ data sources. Unlike traditional frameworks requiring manual tool wiring, Kaji executes complex multi-step workflows autonomously, from compliance audits to live dashboard deployment with Kubernetes integration.</p>
+            <div class="builders-note">
+                <span class="note-label">Builder's Note</span>
+                <p>Kaji represents the exact architectural pattern Shlomo should study: a full computing environment that lives within your perimeter, not just an API wrapper. The 200+ data source connections and autonomous workflow execution show how to build true AI operating systems rather than glorified chatbots—this is the direction for Shlomo's hub-and-spoke design.</p>
+            </div>
+        </article>
+        <article class="card" style="animation-delay: 0.42000000000000004s">
+            <div class="card-meta">
+                <span class="card-num">05</span>
+                <a class="card-source" href="https://www.agilesoftlabs.com/blog/2026/03/multi-agent-ai-systems-enterprise-guide" target="_blank" rel="noopener">AgileSoftLabs ↗</a>
+            </div>
+            <h2 class="card-headline">Multi-Agent Systems Deliver 1,445% Surge in Enterprise Inquiries, 3x Performance Gains</h2>
+            <p class="card-summary">Gartner documented a 1,445% surge in multi-agent system inquiries from Q1 2024 to Q2 2025, with enterprises reporting 3× faster task completion and 60% better accuracy versus single-agent implementations. Five proven architecture patterns have emerged: Supervisor/Worker, Peer-to-Peer, Hierarchical, Pipeline/Sequential, and Marketplace/Auction, each solving distinct enterprise challenges.</p>
+            <div class="builders-note">
+                <span class="note-label">Builder's Note</span>
+                <p>The 1,445% inquiry surge proves multi-agent orchestration has moved from experimental to production-critical. These five proven patterns give Shlomo a clear architectural roadmap—the hierarchical pattern particularly fits FAM's structure, while the performance metrics (3x speed, 60% accuracy gain) provide concrete ROI justification for the investment.</p>
+            </div>
+        </article>
+        <article class="card" style="animation-delay: 0.5s">
+            <div class="card-meta">
+                <span class="card-num">06</span>
+                <a class="card-source" href="https://www.ocorian.com/knowledge-hub/insights/family-offices-turn-ai-avoid-investing-sector-now" target="_blank" rel="noopener">Ocorian ↗</a>
+            </div>
+            <h2 class="card-headline">Family Offices Embrace AI for Operations While Avoiding Direct AI Sector Investment</h2>
+            <p class="card-summary">A February 2026 survey of 200 family office professionals managing $119.37 billion found widespread adoption of AI for internal operations including document extraction, portfolio analytics, and knowledge management systems. However, family offices remain cautious about direct investments in the AI sector itself, preferring to use the technology operationally rather than as an investment theme.</p>
+            <div class="builders-note">
+                <span class="note-label">Builder's Note</span>
+                <p>This perfectly validates Shlomo's positioning: family offices want AI as operational infrastructure, not investment plays. The focus on 'document extraction, portfolio analytics, and knowledge management' maps directly to Shlomo's core use cases—you're building exactly what this market segment actually wants to use internally.</p>
+            </div>
+        </article>
+        <article class="card" style="animation-delay: 0.58s">
+            <div class="card-meta">
+                <span class="card-num">07</span>
+                <a class="card-source" href="https://www.researchgate.net/publication/398878820_Ethics_Governance_and_Regulation_of_AI_in_the_2026_Landscape" target="_blank" rel="noopener">ResearchGate ↗</a>
+            </div>
+            <h2 class="card-headline">Enterprise AI Governance Frameworks Transition from Aspirational Guidelines to Enforceable Standards</h2>
+            <p class="card-summary">Academic research indicates that by 2026, AI governance frameworks are transitioning from aspirational guidelines to enforceable standards globally. Critical governance areas requiring intervention include fairness in automated decision systems, transparency and explainability reporting, data privacy protections, and accountability metrics for autonomous agents.</p>
+            <div class="builders-note">
+                <span class="note-label">Builder's Note</span>
+                <p>This regulatory shift creates a massive opportunity for Shlomo's values-based AI approach. While competitors scramble to retrofit ethics into their systems, Shlomo's Hasidic philosophy foundation gives FAM a native governance framework that can exceed regulatory requirements—turning compliance from cost center into competitive advantage.</p>
+            </div>
+        </article>
+</div>
+
+<footer>
+  <span class="footer-text">Powered by Shlomo Agent · Prior day intelligence</span>
+  <span class="footer-mark">FAM · Confidential</span>
+</footer>
+
+</body>
+</html>

@@ -71,103 +71,14 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);max-width:
 <div class="theme-bar">
   <div class="theme-inner">
     <span class="theme-pill">Signal</span>
-    <p class="theme-text">Agent orchestration and structured memory are moving from philosophy to infrastructure—built right at the OS level, not bolted on.</p>
+    <p class="theme-text">Could not parse today's briefing — check the log.</p>
   </div>
 </div>
 <main>
   <div class="section-label">Yesterday's Intelligence</div>
-  <div class="cards-grid">
-        <article class="card" style="animation-delay:0.4s">
-            <div class="card-top">
-                <span class="tag" style="background:#e8f4e8;color:#2d6a2d">AGENTS</span>
-                <a class="source-link" href="https://www.agilesoftlabs.com/blog/2026/04/the-next-evolution-of-agents-sdk" target="_blank" rel="noopener">
-                    AgileSoftLabs &#8599;
-                </a>
-            </div>
-            <h3>OpenAI Agents SDK Adds Native Sandbox Execution and Model-Native Harness for Enterprise Safety</h3>
-            <p class="summary">OpenAI released a major Agents SDK update with sandbox execution allowing agents to operate in controlled environments accessing only assigned files/tools, plus a model-native harness for multi-step tasks with configurable memory and Manifest abstraction for workspace portability across AWS S3, Google Cloud, Azure, and Cloudflare R2.</p>
-            <div class="builders-note">
-                <div class="bn-label">&#9733; Builder's Note</div>
-                <p>Steal the Manifest pattern: a structured workspace description makes your agent portable from dev to production. For Shlomo's private deployment, sandboxing is non-negotiable—prevent spoke agents from accessing data outside their portfolio company boundary. The harness-first design is the inverse of prompt engineering; it's about surrounding the model with the right execution primitives.</p>
-            </div>
-        </article>
-        <article class="card" style="animation-delay:0.5s">
-            <div class="card-top">
-                <span class="tag" style="background:#e8f4e8;color:#2d6a2d">AGENTS</span>
-                <a class="source-link" href="https://www.taskade.com/blog/multi-agent-production" target="_blank" rel="noopener">
-                    Taskade &#8599;
-                </a>
-            </div>
-            <h3>Taskade Scales Multi-Agent Collaboration with Context Isolation, Credit-Based Model Routing, and 500K+ Production Deployments</h3>
-            <p class="summary">Taskade released its multi-agent orchestration architecture showing how 500K+ production systems handle context isolation across specialist agents, credit-based model routing (Gemini 3.1 Pro for free tier, Claude Sonnet 4.6 for paid), and an EVE orchestrator agent that breaks tasks into sub-tasks while preventing context pollution between agents.</p>
-            <div class="builders-note">
-                <div class="bn-label">&#9733; Builder's Note</div>
-                <p>Context isolation is the counterintuitive move: agents perform worse with more context, not better. Your specialist spokes should be siloed—the Data Agent doesn't see the Execution Agent's full history. Use a master orchestrator (like EVE) for task decomposition and result aggregation. This pattern prevents hallucination cascades in multi-agent workflows.</p>
-            </div>
-        </article>
-        <article class="card" style="animation-delay:0.6000000000000001s">
-            <div class="card-top">
-                <span class="tag" style="background:#e8f4e8;color:#2d6a2d">AGENTS</span>
-                <a class="source-link" href="https://www.kucoin.com/news/flash/ai-programming-startup-augment-launches-intent-workstation-with-spec-driven-multi-agent-orchestration" target="_blank" rel="noopener">
-                    KuCoin News &#8599;
-                </a>
-            </div>
-            <h3>Augment Code Launches Intent Workstation with Spec-Driven Multi-Agent Development and Resumable Sessions</h3>
-            <p class="summary">Augment Code unveiled Intent, a developer workstation using Spec-Driven Development with a Coordinator agent that breaks tasks into living specs distributed to parallel expert agents (testing, documentation, backend), integrating browser, terminal, and Git management with resumable multi-day workflows and support for third-party tools like Claude Code and OpenAI Codex.</p>
-            <div class="builders-note">
-                <div class="bn-label">&#9733; Builder's Note</div>
-                <p>Spec-driven orchestration is powerful: decompose intent into a living specification document that agents can reason about, update, and coordinate against. The resumable session pattern is gold for Shlomo's multi-day portfolio analysis workflows—preserve agent state, context, and decisions across sessions without losing continuity. Use this for inter-spoke coordination.</p>
-            </div>
-        </article>
-        <article class="card" style="animation-delay:0.7000000000000001s">
-            <div class="card-top">
-                <span class="tag" style="background:#e8eef8;color:#2d3f6a">KNOWLEDGE</span>
-                <a class="source-link" href="https://windowsnews.ai/article/enterprise-ai-knowledge-management-2026-microsofts-shift-from-search-to-governed-agent-workflows.410816" target="_blank" rel="noopener">
-                    Windows News &#8599;
-                </a>
-            </div>
-            <h3>Enterprise AI Shifting from RAG Search to Governed Autonomous Agent Workflows That Execute Business Processes</h3>
-            <p class="summary">Microsoft's 2026 enterprise AI strategy moves beyond retrieval-augmented generation (RAG) chatbots to governed agentic systems that autonomously plan, execute, and verify multi-step business processes while maintaining compliance, addressing the 'query-response gap' where systems can retrieve information but cannot execute workflows like applying policies or allocating resources.</p>
-            <div class="builders-note">
-                <div class="bn-label">&#9733; Builder's Note</div>
-                <p>This is the core architectural shift: Shlomo must move beyond 'find and summarize' (RAG) to 'decide and execute' (agentic). Your knowledge hub shouldn't just answer 'what's our portfolio concentration?' it should autonomously rebalance, notify stakeholders, and log decisions. The governance layer (who can execute what, audit trails) is now foundational, not optional.</p>
-            </div>
-        </article>
-        <article class="card" style="animation-delay:0.8s">
-            <div class="card-top">
-                <span class="tag" style="background:#f8e8e8;color:#6a2d2d">INFRA</span>
-                <a class="source-link" href="https://lenovopress.lenovo.com/lp2368-on-premise-vs-cloud-generative-ai-total-cost-of-ownership-2026-edition" target="_blank" rel="noopener">
-                    Lenovo Press &#8599;
-                </a>
-            </div>
-            <h3>Lenovo's 2026 TCO Analysis: On-Premise AI Achieves 4-Month Breakeven vs Cloud, 18x Cost Advantage for Token Economics</h3>
-            <p class="summary">Lenovo's rigorous 2026 TCO analysis shows on-premises infrastructure (ThinkSystem with NVIDIA Hopper/Blackwell) achieves breakeven in under 4 months for high-utilization workloads and yields up to 18x cost advantage per million tokens compared to Model-as-a-Service APIs, driven by the Blackwell Efficiency Singularity and Token Economics framework analyzing 5-year enterprise lifecycle.</p>
-            <div class="builders-note">
-                <div class="bn-label">&#9733; Builder's Note</div>
-                <p>For FAM: this validates Shlomo's architecture. Private inference on controlled hardware beats API economics fast once you reach scale. The token economics math is clear—if you're running continuous agentic workflows across portfolio companies, on-prem pays for itself in months. Start measuring your cost per inference decision, not cost per token.</p>
-            </div>
-        </article>
-        <article class="card" style="animation-delay:0.9s">
-            <div class="card-top">
-                <span class="tag" style="background:#f8f4e8;color:#6a552d">FAMILY OFFICE</span>
-                <a class="source-link" href="https://andsimple.co/reports/family-office-software/" target="_blank" rel="noopener">
-                    Simple &#8599;
-                </a>
-            </div>
-            <h3>Family Offices Split 2026 Tech Budgets Equally Between AI/Automation and Data Reporting—Integration and Trust Become Baseline</h3>
-            <p class="summary">Simple's 2026 Family Office Software Report shows FOs prioritizing AI/automation and data/reporting equally, with fewer than 25% of new prospects relying on spreadsheets, operationally fluent buyers demanding proof, and successful vendors building 'systems thinkers' not module-focused solutions aligned with onboarding momentum and long-term trust.</p>
-            <div class="builders-note">
-                <div class="bn-label">&#9733; Builder's Note</div>
-                <p>The FO market confirms your model: integration, governance, and trust are now non-negotiable. They're moving from 'do we have AI?' to 'does AI actually reduce operational complexity and align with our values?' Shlomo's architecture (hub + spokes, proprietary knowledge base, values layer) maps directly to what FOs now require. Build for generational wealth stewardship, not transaction velocity.</p>
-            </div>
-        </article></div>
+  <div class="cards-grid"></div>
   <div class="section-label" style="animation-delay:0.32s">Teaching Moment</div>
   
-        <section class="teaching" style="animation-delay:0.35s">
-            <div class="teaching-eyebrow">&#9432; Teaching Moment</div>
-            <h3 class="teaching-concept">The Harness Model for Agents</h3>
-            <p class="teaching-body">Think of an AI agent like a jazz musician trying to perform. The 'harness' is everything around the musician—the other band members, the sheet music stand, the stage setup, the sound system. Without a good harness, even the best musician (the frontier model) struggles. OpenAI's new Agents SDK adds native sandbox execution (a safe stage where the musician can only touch their assigned instrument), a manifest (agreed-upon sheet music that travels with them), and configurable memory (so they remember what they played yesterday). For Shlomo: this means your agent harness—memory, orchestration, tools, execution environment—needs to be designed alongside the model, not after.</p>
-        </section>
 </main>
 <footer>
   <span class="footer-left">Shlomo Morning Briefing &middot; Prior day intelligence &middot; Auto-generated</span>
